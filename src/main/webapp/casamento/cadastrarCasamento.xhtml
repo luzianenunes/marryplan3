@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>CadastrarCasamento</title>
+</h:head>
+
+<ui:decorate template="/index.xhtml">
+	<ui:define name="centro">
+
+<h:form>
+	<p:growl id="messages"></p:growl>
+	<p:panelGrid columns="2"  value="#{casamentoMbean.casamentoVO}">
+	 
+	    <h:outputText value="Data do Casamento: " />
+		<p:calendar  value="#{casamentoMbean.casamentoVO.dataCasamento}" pattern="dd-MM-yyyy" mask="99-99-9999" />
+
+		<h:outputText value="Nome da Noiva" />
+	   	<p:inputText value="#{casamentoMbean.casamentoVO.nomeNoiva}"/> 
+	   	
+	   	<h:outputText value="Nome do Noivo" />
+	   	<p:inputText  value="#{casamentoMbean.casamentoVO.nomeNoivo}" />
+		
+		
+	    <h:outputText value="Valor Limite para Gastos" />
+	   	<p:inputText value="#{casamentoMbean.casamentoVO.valorLimite}" />
+	   	
+	   	<h:outputText value="Valor estimado de convidados:" />
+	   	<p:inputText value="#{casamentoMbean.casamentoVO.limiteConvidados}" />
+	   	
+	   	<h:outputText value="Local da Cerimônia:" />
+	   	<p:inputText value="#{casamentoMbean.casamentoVO.localCasamento}"> </p:inputText>
+	   	
+	   	<h:outputText value="Local da Recepção" />
+	   	<p:inputText value="#{casamentoMbean.casamentoVO.localRecepcao}"> </p:inputText>
+	   	
+	  
+		</p:panelGrid>
+		
+		<p:commandButton value="Salvar" action="#{casamentoMbean.editarCasamento}"
+		update="messages" />   
+		
+		
+	</h:form>	
+</ui:define >		
+</ui:decorate>
+</html>
